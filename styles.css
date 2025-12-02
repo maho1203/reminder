@@ -1,52 +1,90 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 25px;
-    color: #262626;
+body { 
+  font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f7f1; /* ナチュラルアイボリー */
+  color: #4a4a4a;
 }
 
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h2 {
+  margin-bottom: 22px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #5c4d39; /* 優しいブラウン */
+}
+
+/* 入力パーツ */
 select, button, textarea { 
   width: 100%;
-  font-size: 17px;
-  padding: 12px;
-  margin-top: 14px;
-  border-radius: 12px; /* ←角丸 */
-  border: 1px solid #bbb;
+  font-size: 18px;
+  padding: 15px;
+  margin-top: 16px;
+  border-radius: 14px;
+  border: 1px solid #c7bca6;
+  background-color: #fffdfa;
   box-sizing: border-box;
 }
 
-/* ボタンスタイル */
+/* ボタン */
 button {
   cursor: pointer;
-  font-weight: bold;
-  border: none;
+  font-weight: 600;
   transition: 0.25s;
+  border: none;
 }
 
-/* 生成ボタン（青） */
+/* リマインド生成ボタン（ナチュラルグリーン） */
 #generateBtn {
-  background-color: #4ca5ff;
+  background-color: #9dc8a3;
   color: white;
 }
 #generateBtn:hover {
-  background-color: #1f8bff;
+  background-color: #88b291;
 }
 
-/* コピー＆保存ボタン（黄色） */
+/* コピー・保存（ナチュラルベージュ） */
 .buttons {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   margin-top: 12px;
 }
 .buttons button {
-  background-color: #ffe38f;
+  background-color: #e7d7b7;
+  color: #4c4c4c;
 }
 .buttons button:hover {
-  background-color: #ffd54d;
+  background-color: #dac29a;
 }
 
-/* テキストエリア */
 textarea { 
-  height: 380px;
+  height: 420px;
   resize: vertical;
+  line-height: 1.7;
+}
+
+/* --------📱 スマホ最適化 -------- */
+@media (max-width: 640px) {
+  body { font-size: 18px; } /* 全体拡大 */
+  .container { padding: 20px; }
+  select, button, textarea { 
+    font-size: 19px;
+    padding: 17px;
+  }
+  textarea { height: 500px; }
+  .buttons {
+    flex-direction: column; /* 縦に並べる */
+  }
+}
+
+/* --------💻 PC向け -------- */
+@media (min-width: 1000px) {
+  textarea { height: 500px; }
+  select, button, textarea { font-size: 19px; }
 }
