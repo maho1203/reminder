@@ -10,7 +10,7 @@ body {
 .container {
     max-width: 850px;
     margin: auto;
-    padding: 25px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 20px;
     background: white;
@@ -19,10 +19,10 @@ body {
 
 h2 {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-/* セレクトやテキストエリア */
+/* input系 */
 select,
 textarea {
     width: 100%;
@@ -34,9 +34,8 @@ textarea {
     box-sizing: border-box;
 }
 
-/* テキストエリア高さ */
 textarea {
-    height: 380px;
+    height: 360px;
     resize: vertical;
     text-align: left;
     line-height: 1.7;
@@ -67,7 +66,6 @@ button:hover {
     display: flex;
     gap: 15px;
 }
-
 .buttons button {
     font-size: 20px;
     background-color: #5cadff;
@@ -76,24 +74,39 @@ button:hover {
     background-color: #3b8fe3;
 }
 
-/* スマホ改善 */
+/* ----------------------------- */
+/* 📱 スマホデザイン強化エリア */
+/* ----------------------------- */
 @media (max-width: 650px) {
+
     body {
-        padding: 16px;
+        padding: 10px;
     }
+
+    .container {
+        max-width: 95%;
+        padding: 22px;
+    }
+
     h2 {
-        font-size: 50px;
+        font-size: 38px;
+        line-height: 1.4;
+        margin-bottom: 30px;
     }
+
     select,
     textarea,
     button {
-        font-size: 30px;
-        padding: 16px;
+        font-size: 28px;
+        padding: 20px;
+        border-radius: 20px;
     }
-    .buttons {
-        flex-direction: column; /* 縦並びで押しやすく */
-    }
+
     textarea {
-        height: 1000px;
+        height: 700px;
+    }
+
+    .buttons {
+        flex-direction: column; /* 1列にする */
     }
 }
