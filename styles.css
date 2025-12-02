@@ -82,18 +82,18 @@ button:hover {
         padding: 16px;
     }
     h2 {
-        font-size: 26px;
+        font-size: 50px;
     }
     select,
     textarea,
     button {
-        font-size: 19px;
+        font-size: 30px;
         padding: 16px;
     }
     .buttons {
         flex-direction: column; /* 縦並びで押しやすく */
     }
     textarea {
-        height: 500px;
+        height: 1000px;
     }
 }
