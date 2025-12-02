@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>研修リマインド生成</title>
+<style>
+  body { font-family: sans-serif; max-width: 800px; margin: 40px auto; }
+  select, button, textarea { width: 100%; font-size: 16px; margin-top: 14px; padding: 8px; }
+  textarea { height: 380px; }
+  .buttons { display: flex; gap: 10px; margin-top: 10px; }
+  .buttons button { flex: 1; }
+</style>
+</head>
+<body>
+
+<h2>研修リマインド文章 生成ページ</h2>
+
+<label>研修の種類</label>
+<select id="trainingSelect">
+  <option value="">選択してください</option>
+  <option value="サポーター研修">サポーター研修</option>
+</select>
+
+<label>日時</label>
+<select id="datetimeSelect">
+  <option value="">研修を先に選択してください</option>
+</select>
+
+<button id="generateBtn">リマインドを確認する</button>
+
+<textarea id="output" placeholder="ここにリマインド文章が表示されます"></textarea>
+
+<div class="buttons">
+  <button id="copyBtn">コピー</button>
+  <button id="downloadBtn">txtで保存</button>
+</div>
+
+<script>
+const trainingFiles = {
+  "サポーター研修": {
+    file: "supporter.txt",
+    dates: [
+      "12/14(日) 10:00〜12:00",
+      "12/14(日) 14:00〜16:00",
+      "12/20(土) 14:00〜16:00",
+      "12/21(日) 10:00〜12:00",
+      "12/21(日) 14:00〜16:00",
+      "1/10(土) 10:00〜12:00",
+      "1/11(日) 10:00〜12:00",
+      "1/17(土) 10:00〜12:00",
+      "1/17(土) 14:00〜16:00",
+      "1/24(土) 14:00〜16:00",
+      "2/8(日) 10:00〜12:00",
+      "2/15(日) 10:00〜12:00",
+      "2/15(日) 14:00〜16:00"
+    ]
+  }
+};
+
+const trainingSelect = document.getElementById("trainingSelect");
+const datetimeSelect = document.getElementById("datetimeSelect");
+const output = document.getElementById("output");
+
+trainingSelect.addEventListener("change", () => {
+  const selected = trainingSelect.value;
+  datetimeSelect.innerHTML = "<option value=''>選択してください</option>";
+  if (!selected) return;
+  trainingFiles[selected].dates.forEach(date => {
+    const op = document.createElement("option");
+    op.value = date;
+    op.textContent = date;
+    datetimeSelect.appendChild(op);
+  });
+});
+
+document.getElementById("generateBtn").addEventListener("click", async () => {
+  const t = trainingSelect.value;
+  const d = datetimeSelect.value;
+  if (!t || !d) {
+    output.value = "研修の種類と日時を選択してください。";
+    return;
+  }
+  const file = trainingFiles[t].file;
+  try {
+    const text = await fetch(file).then(res => res.text());
+    output.value = text.replace(/{{研修名}}/g, t).replace(/{{日時}}/g, d);
+  } catch {
+    output.value = "文章ファイルの読み込みに失敗しました。\n同じフォルダに txt があるか確認してください。";
+  }
+});
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+  output.select();
+  document.execCommand("copy");
+  alert("コピーしました！");
+});
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const blob = new Blob([output.value], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reminder.txt";
+  a.click();
+});
+</script>
+
+</body>
+</html>
