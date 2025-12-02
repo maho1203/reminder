@@ -3,96 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>研修リマインド生成</title>
-<style>
- body { 
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fafafa;
-}
-
-.container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  text-align: center;
-}
-
-/* 入力系パーツ */
-select, button, textarea { 
-  width: 100%;
-  font-size: 17px;
-  padding: 12px;
-  margin-top: 14px;
-  border-radius: 12px; /* ←角丸 */
-  border: 1px solid #bbb;
-  box-sizing: border-box;
-}
-
-/* ボタンスタイル */
-button {
-  cursor: pointer;
-  font-weight: bold;
-  border: none;
-  transition: 0.25s;
-}
-
-/* 生成ボタン（青） */
-#generateBtn {
-  background-color: #4ca5ff;
-  color: white;
-}
-#generateBtn:hover {
-  background-color: #1f8bff;
-}
-
-/* コピー＆保存ボタン（黄色） */
-.buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
-.buttons button {
-  background-color: #ffe38f;
-}
-.buttons button:hover {
-  background-color: #ffd54d;
-}
-
-/* テキストエリア */
-textarea { 
-  height: 380px;
-  resize: vertical;
-}
-
-/* --------- 📱 スマホ向け --------- */
-@media (max-width: 599px) {
-  .container {
-    padding: 16px;
-  }
-  textarea {
-    height: 320px;
-  }
-  .buttons {
-    flex-direction: column; /* ボタンが縦並びになる */
-  }
-}
-
-/* --------- 💻 PC向け --------- */
-@media (min-width: 1000px) {
-  select, button, textarea {
-    font-size: 18px;
-  }
-  textarea {
-    height: 420px;
-  }
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
@@ -190,6 +101,7 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
 </div>
 </body>
 </html>
+
 
 
 
