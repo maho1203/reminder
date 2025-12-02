@@ -5,10 +5,6 @@ body {
     color: #262626;
 }
 
-li {
-    list-style: none;
-  }
-
 #question-container, #result-container {
     max-width: 800px;
     margin: auto;
