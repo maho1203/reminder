@@ -2,31 +2,38 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>研修リマインド生成</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>研修リマインド生成</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<div class="header-text">
+    受ける研修をチェックしましょう！<br>
+    わからないことがあれば公式LINEよりお問い合わせください。
+</div>
+
 <div class="container">
-<h2>研修の詳細を確認しよう！</h2>
+    <h2>研修の詳細を確認しよう！</h2>
 
-<label>研修の種類</label>
-<select id="trainingSelect">
-  <option value="">選択してください</option>
-  <option value="サポーター研修">サポーター研修</option>
-</select>
+    <label>研修の種類</label>
+    <select id="trainingSelect">
+        <option value="">選択してください</option>
+        <option value="サポーター研修">サポーター研修</option>
+    </select>
 
-<label>日時</label>
-<select id="datetimeSelect">
-  <option value="">研修を先に選択してください</option>
-</select>
+    <label>日時</label>
+    <select id="datetimeSelect">
+        <option value="">研修を先に選択してください</option>
+    </select>
 
-<button id="generateBtn">リマインドを確認する</button>
+    <button id="generateBtn">リマインドを確認する</button>
 
-<textarea id="output" placeholder="ここにリマインド文章が表示されます"></textarea>
+    <textarea id="output" placeholder="ここにリマインド文章が表示されます"></textarea>
 
-<div class="buttons">
-  <button id="copyBtn">コピー</button>
-  <button id="downloadBtn">txtで保存</button>
+    <div class="buttons">
+        <button id="copyBtn">コピー</button>
+        <button id="downloadBtn">txtで保存</button>
+    </div>
 </div>
 
 <script>
@@ -98,10 +105,5 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
 });
 </script>
 
-</div>
 </body>
 </html>
-
-
-
-
